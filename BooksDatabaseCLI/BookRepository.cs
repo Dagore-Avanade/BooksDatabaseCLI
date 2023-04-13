@@ -20,7 +20,7 @@ namespace BooksDatabaseCLI
             {
                 StreamReader streamReader = new(path);
                 List<Book> books = new();
-                string row;
+                string row = streamReader.ReadLine();
 
                 while (!streamReader.EndOfStream)
                 {
@@ -37,7 +37,6 @@ namespace BooksDatabaseCLI
                 throw new FileNotFoundException();
             }
         }
-
         public void Add(string author, string title)
         {
             Book book = new Book(author, title);
@@ -74,6 +73,7 @@ namespace BooksDatabaseCLI
             if (File.Exists(path))
             {
                 StreamWriter streamWriter = new(path);
+                streamWriter.WriteLine("Author,Title");
 
                 foreach (Book book in books)
                 {
