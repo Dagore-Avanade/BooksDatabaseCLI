@@ -76,7 +76,7 @@ namespace BooksDatabaseCLI
                 Console.WriteLine("La carga del fichero propocionado ha fallado y se procede con el fichero por defecto.");
                 try
                 {
-                    filePath = "./books.csv";
+                    filePath = "../../../../books.csv";
                     repository = BookRepository.FromCSV(filePath);
                 }
                 catch (Exception ex)
